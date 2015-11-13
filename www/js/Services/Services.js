@@ -1,4 +1,5 @@
-angular.module('shernow.services', [])
+'use strict';
 
+angular.module('shernow.services', []);
 
-var baseApi = "http://localhost:3000"
+var baseApi = 'http://localhost:3000';

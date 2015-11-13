@@ -1,1 +1,3 @@
-angular.module('shernow.controllers', [])
+'use strict';
+
+angular.module('shernow.controllers', []);
