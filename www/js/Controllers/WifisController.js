@@ -5,4 +5,5 @@ angular.module('shernow.controllers')
         Wifis.getAll().then(function(wifis) {
             $scope.wifis = wifis;
         });
+        
     });
