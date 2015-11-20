@@ -2,7 +2,7 @@
 
 angular.module('shernow.services')
     .factory('Wifis', function ($http) {
-        var wifis;
+        var wifis = [];
         
         /**
          * Return a list of wifis informations
@@ -10,7 +10,6 @@ angular.module('shernow.services')
          * succeeds or fails.
          */
         var getAll = function () {
-            
             return $http.get(baseApi + '/api/wifi/')
                 .then(function(result) {
                     wifis = result.data;
@@ -24,7 +23,10 @@ angular.module('shernow.services')
          * @returns {*}
          */
         var get = function (id) {
-            return _.find(wifis, function(wifi){ return wifi._id == id; })
+            if (wifis.length == 0){
+                redirectToWifis();
+            }
+            return _.find(wifis, function(wifi){ return wifi._id == id; });
         };
 
         return {
