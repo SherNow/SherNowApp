@@ -42,6 +42,15 @@ angular.module('shernow', ['ionic', 'shernow.controllers', 'shernow.services'])
                         controller: 'WifiController'
                     }
                 }
+            })
+            .state('tab.garbage', {
+                url: '/garbage',
+                views: {
+                    'tab-garbage': {
+                        templateUrl: 'templates/garbage.html',
+                        controller: 'GarbageController'
+                    }
+                }
             });
 
         $urlRouterProvider.otherwise('/tab/wifis');
