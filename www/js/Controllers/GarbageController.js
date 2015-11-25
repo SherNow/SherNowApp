@@ -3,10 +3,8 @@
 angular.module('shernow.controllers')
     .controller('GarbageController', function($scope, $stateParams, $ionicModal, Garbage) {
         $scope.garbage = '';
-        $scope.postalCodeSet = false;
-        
         var regex = new RegExp(/^[ABCEGHJKLMNPRSTVXY]\d[ABCEGHJKLMNPRSTVWXYZ]( )?\d[ABCEGHJKLMNPRSTVWXYZ]\d$/i);
-        
+    
         $scope.refresh = function(){
              Garbage.get().then(function(garbage) {
                 $scope.garbage = garbage;
@@ -14,39 +12,88 @@ angular.module('shernow.controllers')
              });
         };
         
+        // postal code not set state
+        var postalCodeUnset = function(handler){
+            this.handler = handler;
+            
+            this.refresh = function(){
+                $scope.postalCode = postalCode;
+                $scope.showForm();
+            }
+            
+            this.cancel = function(){
+                
+            }
+            
+            this.closeForm = function(){
+                
+            }
+        }
+        
+        // postal code set state
+        var postalCodeSet = function(handler){
+            this.handler = handler;
+            
+            this.refresh = function(){
+                $scope.postalCode = postalCode;
+                $scope.refresh();
+            }
+            
+            this.cancel = function(){
+                $scope.modal.hide();
+            }
+            
+            this.closeForm = function(){
+                this.cancel();
+            }
+        }
+        
         $ionicModal.fromTemplateUrl('templates/postalcode.html' , {scope: $scope, hardwareBackButtonClose: false, backdropClickToClose: false, focusFirstInput: true}).then(function (modal) {
            $scope.modal = modal;
-           if (postalCode == ''){
-               $scope.showForm();
-           }
-           else {
-               $scope.refresh();
-           }
+           
+           // state handler
+           var postalCodeHandler = function(){
+                var currentState = postalCode == '' ? new postalCodeUnset(this) : new postalCodeSet(this);
+                
+                this.change = function (state) {
+                    currentState = state;
+                    this.refresh();
+                };
+                
+                this.refresh = function(){
+                    currentState.refresh();
+                };
+                
+                this.cancel = function(){
+                    currentState.cancel();
+                };
+                
+                this.closeForm = function(){
+                    currentState.closeForm();
+                };
+            }
+            
+            $scope.handler = new postalCodeHandler();
+            $scope.handler.refresh();
         });
-        
-        $scope.showForm = function(){
-            $scope.postalCode = postalCode;
-            $scope.modal.show();
-        };
-        
-        $scope.closeForm = function(){
-            $scope.modal.hide();
-        };
         
         $scope.validatePostalCode = function(postalCode){
             return !regex.test(postalCode);
         };
         
+        $scope.showForm = function(){
+            $scope.modal.show();
+        };
+        
         $scope.submitPostalCode = function(code){
-            code = code.toUpperCase();
+            postalCode = code.toUpperCase();
             
-            if (code.length == 7){
-                code = code.substring(0,3) + code.substring(4, 7);
+            if (postalCode.length == 7){
+                postalCode = postalCode.substring(0,3) + postalCode.substring(4, 7);
             }
             
-            localStorage.setItem('postalCode', code);
-            postalCode = code;
-            $scope.closeForm();
-            $scope.refresh();
+            localStorage.setItem('postalCode', postalCode);
+            $scope.handler.change(new postalCodeSet());
+            $scope.handler.closeForm();
         }
 });

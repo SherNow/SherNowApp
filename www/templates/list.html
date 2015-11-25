@@ -6,12 +6,12 @@
         </ion-refresher>
         <ion-list>
             <ion-item class="item item-divider">
-            Points d'accès Wi-Fi
+            {{listtitle}}
             </ion-item>
-            <ion-item class="item item-avatar item-icon-right" collection-repeat="wifi in wifis" href="#/tab/wifi/{{wifi._id}}">
-                <img src="img/ionicons/wifi.png">
-                <h2>{{wifi.name}}</h2>
-                <p>{{wifi.civic_number}} {{wifi.street_name}}, {{wifi.city}}</p>
+            <ion-item class="item item-avatar item-icon-right" collection-repeat="elem in data" ng-href="{{href}}{{elem._id}}">
+                <img ng-src="img/ionicons/{{listicon}}.png">
+                <h2>{{elem.getMain()}}</h2>
+                <p>{{elem.getSub()}}</p>
                 <i class="icon ion-chevron-right icon-accessory"></i>
                 <ion-option-button class="button-balanced" ng-click="call()"> 
                     <i class="icon ion-ios-telephone"></i>

@@ -1,0 +1,16 @@
+<ion-view>
+    <ion-content>
+        <ion-list type="card">
+            <ion-item class="item item-avatar">
+                <img ng-src="img/ionicons/{{elem.getIcon()}}.png">
+                <h2>{{elem.getMain()}}</h2>
+                <p>{{elem.getDetail()}}</p>
+                <p ng-show="elem.getMoreDetail()">{{elem.getMoreDetail()}}</p>
+                <a ng-show="elem.phone" class="item-icon-right"
+                   ng-href="tel:+{{elem.phone}}">
+                    <i class="icon ion-ios-telephone-outline"></i>
+                </a>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

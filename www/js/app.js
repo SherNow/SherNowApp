@@ -26,10 +26,10 @@ angular.module('shernow', ['ionic', 'shernow.controllers', 'shernow.services'])
                 templateUrl: 'templates/tabs.html'
             })
             .state('tab.wifis', {
-                url: '/wifis',
+                url: '/wifi',
                 views: {
                     'tab-wifi': {
-                        templateUrl: 'templates/wifis.html',
+                        templateUrl: 'templates/list.html',
                         controller: 'WifisController'
                     }
                 }
@@ -39,7 +39,7 @@ angular.module('shernow', ['ionic', 'shernow.controllers', 'shernow.services'])
                 cache : false,
                 views: {
                     'tab-wifi': {
-                        templateUrl: 'templates/wifi.html',
+                        templateUrl: 'templates/item.html',
                         controller: 'WifiController'
                     }
                 }
@@ -54,5 +54,5 @@ angular.module('shernow', ['ionic', 'shernow.controllers', 'shernow.services'])
                 }
             });
 
-        $urlRouterProvider.otherwise('/tab/wifis');
+        $urlRouterProvider.otherwise('/tab/wifi');
     });

@@ -10,11 +10,10 @@ angular.module('shernow.services')
          * succeeds or fails.
          */
         var getAll = function () {
-            return $http.get(baseApi + '/api/wifi/')
-                .then(function(result) {
-                    wifis = result.data;
-                    return result.data;
-                });
+            return $http.get(baseApi + '/api/wifi/').then(function(result) {
+                wifis = _.map(result.data, function (data) { return new Wifi(data); } );
+                return wifis;
+            });
         };
 
         /**
@@ -23,10 +22,7 @@ angular.module('shernow.services')
          * @returns {*}
          */
         var get = function (id) {
-            if (wifis.length == 0){
-                redirectToWifis();
-            }
-            return _.find(wifis, function(wifi){ return wifi._id == id; });
+            return _.find(wifis, function(wifi) { return wifi._id == id; });
         };
 
         return {
