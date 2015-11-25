@@ -8,7 +8,6 @@ angular.module('shernow.controllers')
         $scope.refresh = function(){
              Garbage.get().then(function(garbage) {
                 $scope.garbage = garbage;
-                $scope.postalCodeSet = true;
              });
         };
         
