@@ -1,9 +1,14 @@
 <ion-view>
+	<ion-nav-buttons side="right">
+      <button class="button button-icon icon ion-gear-b" ng-click="showForm()">
+      </button>
+    </ion-nav-buttons>
+</ion-header-bar>
     <ion-content>
         <div class="list card">
 			<div class="item item-avatar">
 				<img src="img/ionicons/trash-a.png">
-				<h2>Jour de cueillette : {{garbage.day}}</h2>
+				<h2>Jour de cueillette : {{garbage.collectDay}}</h2>
 			</div>
         </div>
     </ion-content>

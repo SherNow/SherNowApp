@@ -5,7 +5,7 @@ angular.module('shernow.services')
        
         var get = function () {
             
-            return $http.get(baseApi + '/api/garbage/')
+            return $http.get(baseApi + '/api/garbage/' + postalCode)
                 .then(function(result) {
                     return result.data;
                 });

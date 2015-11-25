@@ -5,7 +5,7 @@
                 <img src="img/ionicons/wifi.png">
                 <h2>{{wifi.name}}</h2>
                 <p>{{wifi.description}}</p>
-                <p>{{wifi.civic_number}} {{wifi.street_name}}, {{wifi.city}}</p>
+                <p>{{wifi.civic_number}} {{wifi.street_name}}, {{wifi.city}}, {{wifi.postal_code}}</p>
                 <p ng-show="wifi.distance">À {{wifi.distance}}</p>
                 <a ng-show="wifi.public_phone_number" class="item-icon-right"
                    ng-href="tel:+{{wifi.public_phone_number}}">

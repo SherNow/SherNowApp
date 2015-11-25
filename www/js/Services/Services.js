@@ -12,3 +12,5 @@ function redirectToWifis(){
 function redirectTo(section){
     window.location.replace(window.location.origin + '/' + (window.location.search != '' ? window.location.search + '/' : '') + '#/tab/' + section);
 }
+
+var postalCode = localStorage.getItem('postalCode') || '';

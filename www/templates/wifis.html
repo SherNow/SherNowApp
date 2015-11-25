@@ -11,7 +11,7 @@
             <ion-item class="item item-avatar item-icon-right" collection-repeat="wifi in wifis" href="#/tab/wifi/{{wifi._id}}">
                 <img src="img/ionicons/wifi.png">
                 <h2>{{wifi.name}}</h2>
-                <p>{{wifi.distance}}</p>
+                <p>{{wifi.civic_number}} {{wifi.street_name}}, {{wifi.city}}</p>
                 <i class="icon ion-chevron-right icon-accessory"></i>
                 <ion-option-button class="button-balanced" ng-click="call()"> 
                     <i class="icon ion-ios-telephone"></i>
