@@ -52,6 +52,15 @@ angular.module('shernow', ['ionic', 'shernow.controllers', 'shernow.services'])
                         controller: 'GarbageController'
                     }
                 }
+            })
+            .state('tab.parking', {
+                url: '/parking',
+                views: {
+                    'tab-parking': {
+                        templateUrl: 'templates/parking.html',
+                        controller: 'ParkingsController'
+                    }
+                }
             });
 
         $urlRouterProvider.otherwise('/tab/wifi');
