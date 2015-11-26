@@ -53,6 +53,7 @@ angular.module('shernow', ['ionic', 'shernow.controllers', 'shernow.services'])
                     }
                 }
             })
+
             .state('tab.restaurants', {
                 url: '/restaurant',
                 views: {
@@ -68,6 +69,23 @@ angular.module('shernow', ['ionic', 'shernow.controllers', 'shernow.services'])
                     'tab-restaurant': {
                         templateUrl: 'templates/item.html',
                         controller: 'RestaurantController'
+
+            .state('tab.parkings', {
+                url: '/parkings',
+                views: {
+                    'tab-parkings': {
+                        templateUrl: 'templates/parkings.html',
+                        controller: 'ParkingsController'
+                    }
+                }
+            })
+             .state('tab.parking', {
+                url: '/parkings/:parkingId',
+                views: {
+                    'tab-parkings': {
+                        templateUrl: 'templates/parking.html',
+                        controller: 'ParkingController'
+
                     }
                 }
             });
