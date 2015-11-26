@@ -52,6 +52,24 @@ angular.module('shernow', ['ionic', 'shernow.controllers', 'shernow.services'])
                         controller: 'GarbageController'
                     }
                 }
+            })
+            .state('tab.restaurants', {
+                url: '/restaurant',
+                views: {
+                    'tab-restaurant': {
+                        templateUrl: 'templates/restaurant.html',
+                        controller: 'RestaurantsController'
+                    }
+                }
+            })
+            .state('tab.restaurant', {
+                url: '/restaurant/:restaurantId',
+                views: {
+                    'tab-restaurant': {
+                        templateUrl: 'templates/item.html',
+                        controller: 'RestaurantController'
+                    }
+                }
             });
 
         $urlRouterProvider.otherwise('/tab/wifi');

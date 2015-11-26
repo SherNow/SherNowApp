@@ -26,6 +26,6 @@ function Wifi(data) {
     }
     
     this.getIcon = function(){
-      return "wifi";
+      return "ion-wifi";
     }
 }

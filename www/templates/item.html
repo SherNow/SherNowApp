@@ -1,15 +1,14 @@
 <ion-view>
     <ion-content>
         <ion-list type="card">
-            <ion-item class="item item-avatar">
-                <img ng-src="img/ionicons/{{elem.getIcon()}}.png">
+            <ion-item class="item item-icon-left item-icon-right">
+                <i class="icon {{elem.getIcon()}}"></i> 
                 <h2>{{elem.getMain()}}</h2>
                 <p>{{elem.getDetail()}}</p>
                 <p ng-show="elem.getMoreDetail()">{{elem.getMoreDetail()}}</p>
-                <a ng-show="elem.phone" class="item-icon-right"
-                   ng-href="tel:+{{elem.phone}}">
-                    <i class="icon ion-ios-telephone-outline"></i>
-                </a>
+                
+                    <i class="icon ion-ios-telephone-outline"><a ng-show="elem.phone" class="item-icon-right"
+                   ng-href="tel:+{{elem.phone}}"></a></i> 
             </ion-item>
         </ion-list>
     </ion-content>
