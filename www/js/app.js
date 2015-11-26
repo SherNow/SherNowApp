@@ -69,6 +69,9 @@ angular.module('shernow', ['ionic', 'shernow.controllers', 'shernow.services'])
                     'tab-restaurant': {
                         templateUrl: 'templates/item.html',
                         controller: 'RestaurantController'
+                    }
+                }
+            })
 
             .state('tab.parkings', {
                 url: '/parkings',
