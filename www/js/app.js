@@ -58,7 +58,7 @@ angular.module('shernow', ['ionic', 'shernow.controllers', 'shernow.services'])
                 url: '/restaurant',
                 views: {
                     'tab-restaurant': {
-                        templateUrl: 'templates/restaurant.html',
+                        templateUrl: 'templates/restaurants.html',
                         controller: 'RestaurantsController'
                     }
                 }
@@ -67,7 +67,7 @@ angular.module('shernow', ['ionic', 'shernow.controllers', 'shernow.services'])
                 url: '/restaurant/:restaurantId',
                 views: {
                     'tab-restaurant': {
-                        templateUrl: 'templates/item.html',
+                        templateUrl: 'templates/restaurant.html',
                         controller: 'RestaurantController'
                     }
                 }

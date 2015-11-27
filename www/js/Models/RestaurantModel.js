@@ -7,6 +7,8 @@ function Restaurant(data) {
   this.distance = "100m";
   this.phone = data.NumeroTelephone;
   this.prix = data.EchellePrix;
+  this.image = data.FichierImage;
+  this.siteWeb = data.SiteWeb;
   
   this._id = data._id;
   
@@ -15,7 +17,7 @@ function Restaurant(data) {
     }
     
     this.getSub = function(){
-      return this.address + " " + this.getEchelle() ;
+      return this.address;
     }
     
     this.getDetail = function(){
@@ -28,6 +30,18 @@ function Restaurant(data) {
     
     this.getIcon = function(){
       return "ion-android-restaurant";
+    }
+    
+    this.getImage = function(){
+      return this.image;
+    }
+    
+    this.getDescription = function(){
+      return this.description;
+    }
+    
+    this.getSiteWeb = function(){
+      return this.siteWeb
     }
     
     this.getEchelle = function(){

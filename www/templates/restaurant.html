@@ -1,25 +1,37 @@
 <ion-view>
     <ion-content>
-        <ion-refresher
-            pulling-text="Pull to refresh..."
-            on-refresh="refresh()">
-        </ion-refresher>
-        <ion-list>
-            <ion-item class="item item-divider">
-            {{listtitle}}
-            </ion-item>
-            <ion-item class="item item-icon-left item-icon-right" collection-repeat="elem in data" ng-href="{{href}}{{elem._id}}">
-                <i class="icon ion-android-restaurant"></i>
+        <ion-list type="card">
+            <ion-item class="item item item-thumbnail-left item-icon-right">
+                <img src={{elem.getImage()}}>
                 <h2>{{elem.getMain()}}</h2>
-                <p>{{elem.getSub()}}</p>
-                <i class="icon ion-chevron-right icon-accessory"></i>
-                <ion-option-button class="button-balanced" ng-click="call()"> 
-                    <i class="icon ion-ios-telephone"></i>
-                </ion-option-button>
-                <ion-option-button class="button-positive" ng-click="mail()"> 
-                    <i class="icon ion-ios-email"></i>
-                </ion-option-button>
-            </ion-item>
+                <p>{{elem.getDetail()}}</p>
+                <a href={{elem.getSiteWeb()}}>Visitez le site de ce restaurant</a>
+                <p ng-show="elem.getMoreDetail()">{{elem.getMoreDetail()}}</p>
+                <i class="icon ion-ios-telephone-outline">
+                  <a ng-show="elem.phone" class="item-icon-right" ng-href="tel:+{{elem.phone}}"></a></i> 
+            </ion-item>  
+            <ion-item class="item item-text-wrap">
+                                {{elem.getDescription()}}
+                
+                <ion-item class= "item tabs tabs-secondary tabs-icon-left"">
+                
+                    <a class="tab-item" href="#">
+                        <i class="icon ion-thumbsup"></i>
+                            Like
+                    </a>
+                    <a class="tab-item" href="#">
+                        <i class="icon ion-chatbox"></i>
+                            Comment
+                    </a>
+                    <a class="tab-item" href="#">
+                        <i class="icon ion-share"></i>
+                            Share
+                    </a> 
+                    </ion-item> 
+           </ion-item>
         </ion-list>
     </ion-content>
 </ion-view>
+
+
+
