@@ -91,6 +91,25 @@ angular.module('shernow', ['ionic', 'shernow.controllers', 'shernow.services'])
 
                     }
                 }
+            })
+            .state('tab.events', {
+                url: '/events',
+                views: {
+                    'tab-events': {
+                        templateUrl: 'templates/events.html',
+                        controller: 'EventsController'
+                    }
+                }
+            })
+             .state('tab.event', {
+                url: '/events/:eventId',
+                views: {
+                    'tab-events': {
+                        templateUrl: 'templates/event.html',
+                        controller: 'EventController'
+
+                    }
+                }
             });
 
         $urlRouterProvider.otherwise('/tab/wifi');
