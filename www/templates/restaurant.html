@@ -2,10 +2,11 @@
     <ion-content>
         <ion-list type="card">
             <ion-item class="item item item-thumbnail-left item-icon-right">
-                <img ng-src={{elem.getImage()}}>
+                <img ng-if="elem.getImage()" src={{elem.getImage()}}>
+                <img ng-if="!elem.getImage()" src= "img/ionicons/ion-android-restaurant.png">
                 <h2>{{elem.getMain()}}</h2>
                 <p>{{elem.getDetail()}}</p>
-                <a href={{elem.getSiteWeb()}}>Visitez le site de ce restaurant</a>
+                <a target="_BLANK" ng-if= "elem.getSafeSiteWeb()" href={{elem.getSafeSiteWeb()}}>Visitez le site de ce restaurant</a>
                 <p ng-show="elem.getMoreDetail()">{{elem.getMoreDetail()}}</p>
                 <i class="icon ion-ios-telephone-outline">
                   <a ng-show="elem.phone" class="item-icon-right" ng-href="tel:+{{elem.phone}}"></a></i> 

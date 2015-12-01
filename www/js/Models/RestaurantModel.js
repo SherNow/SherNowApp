@@ -51,23 +51,25 @@ function Restaurant(data) {
     this.getDescription = function(){
       return this.description;
     }
-    
-    this.getSiteWeb = function(){
-      return this.siteWeb
+        
+    this.getEchelle = function(){
+        return new Array(parseInt(this.prix));
     }
     
-    this.getEchelle = function(){
-        if(this.prix > 3){
-          return "$$$$";
-        }
-        else if (this.prix > 2){
-          return "$$$";
-        }
-        else if (this.prix > 1){
-          return "$$";
+    this.getSafeSiteWeb = function(){
+        if(this.siteWeb){
+          if(this.siteWeb.substring(0,3) != "http"){
+            return "http://" + this.siteWeb;
+          }
+          else{
+            return this.siteWeb();
+          }
         }
         else{
-          return "$";
+          return "";
         }
     }
+    
+
+    
 }
