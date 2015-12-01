@@ -5,10 +5,11 @@
                 <i class="icon {{elem.getIcon()}}"></i> 
                 <h2>{{elem.getMain()}}</h2>
                 <p>{{elem.getDetail()}}</p>
+                <p ng-show="elem.getSomeMoreDetail()">{{elem.getSomeMoreDetail()}}</p>
                 <p ng-show="elem.getMoreDetail()">{{elem.getMoreDetail()}}</p>
-                
-                    <i class="icon ion-ios-telephone-outline"><a ng-show="elem.phone" class="item-icon-right"
-                   ng-href="tel:+{{elem.phone}}"></a></i> 
+                    <i class="icon ion-ios-telephone-outline">
+                        <a ng-show="elem.phone" class="item-icon-right"
+                        ng-href="tel:+{{elem.phone}}"></a></i>
             </ion-item>
         </ion-list>
     </ion-content>

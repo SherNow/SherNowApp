@@ -93,19 +93,19 @@ angular.module('shernow', ['ionic', 'shernow.controllers', 'shernow.services'])
                 }
             })
             .state('tab.events', {
-                url: '/events',
+                url: '/event',
                 views: {
                     'tab-events': {
-                        templateUrl: 'templates/events.html',
+                        templateUrl: 'templates/list.html',
                         controller: 'EventsController'
                     }
                 }
             })
              .state('tab.event', {
-                url: '/events/:eventId',
+                url: '/event/:eventId',
                 views: {
                     'tab-events': {
-                        templateUrl: 'templates/event.html',
+                        templateUrl: 'templates/item.html',
                         controller: 'EventController'
 
                     }
