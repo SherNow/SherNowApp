@@ -11,21 +11,21 @@ function Wifi(data) {
   
     this.getMain = function(){
       return this.name;
-    }
+    };
     
     this.getSub = function(){
       return this.address;
-    }
+    };
     
     this.getDetail = function(){
       return this.fullAddress;
-    }
+    };
     
     this.getMoreDetail = function(){
       return this.distance;
-    }
+    };
     
     this.getIcon = function(){
       return "ion-wifi";
-    }
+    };
 }

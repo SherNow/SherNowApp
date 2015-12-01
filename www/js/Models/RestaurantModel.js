@@ -15,56 +15,46 @@ function Restaurant(data) {
     var related = [];
     
     this.getMain = function(){
-      return this.name;
-    }
-    
-    this.getRelatedRestaurants = function(){
-      return related;
-    }
-    
-    this.addRelatedRestaurant = function(restaurant){
-      if (!_.contains(related, restaurant) && this != restaurant){
-        related.push(restaurant);
-      }
-    }
-    
+        return this.name;
+    };
+
     this.getSub = function(){
-      return this.address;
-    }
-    
+        return this.address;
+    };
+
     this.getDetail = function(){
-      return this.fullAddress;
-    }
-    
+        return this.fullAddress;
+    };
+
     this.getMoreDetail = function(){
-      return this.distance;
-    }
-    
+        return this.distance;
+    };
+
     this.getIcon = function(){
-      return "ion-android-restaurant";
-    }
-    
+        return "ion-android-restaurant";
+    };
+
     this.getImage = function(){
-      return this.image;
-    }
-    
+        return this.image;
+    };
+
     this.getDescription = function(){
-      return this.description;
-    }
-        
+        return this.description;
+    };
+
     this.getEchelle = function(){
         return new Array(parseInt(this.prix));
-    }
-    
-    this.getSafeSiteWeb = function(){
-        if (this.siteWeb){
-            return (this.siteWeb.substring(0, 4) != "http" ? "http://" : "") + this.siteWeb;
-        }
-        else{
-          return "";
-        }
-    }
-    
+    };
 
-    
+    this.getSafeSiteWeb = function(){
+        if(this.siteWeb){
+            if(this.siteWeb.substring(0,4) !== "http"){
+                return "http://" + this.siteWeb;
+            } else{
+                return this.siteWeb;
+            }
+        } else{
+            return "";
+        }
+    };
 }
