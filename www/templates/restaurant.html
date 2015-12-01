@@ -2,7 +2,7 @@
     <ion-content>
         <ion-list type="card">
             <ion-item class="item item item-thumbnail-left item-icon-right">
-                <img src={{elem.getImage()}}>
+                <img ng-src={{elem.getImage()}}>
                 <h2>{{elem.getMain()}}</h2>
                 <p>{{elem.getDetail()}}</p>
                 <a href={{elem.getSiteWeb()}}>Visitez le site de ce restaurant</a>
@@ -29,6 +29,20 @@
                     </a> 
                     </ion-item> 
            </ion-item>
+            <ion-item class="item item-divider">
+            {{listtitle}}
+            </ion-item>
+            <ion-item class="item item-icon-left item-icon-right" ng-repeat="subelem in elem.getRelatedRestaurants() | limitTo:5" ng-href="{{href}}{{subelem._id}}">
+                <i class="icon ion-android-restaurant"></i>
+                <h2>{{subelem.getMain()}}</h2>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+                <ion-option-button class="button-balanced" ng-click="call()"> 
+                    <i class="icon ion-ios-telephone"></i>
+                </ion-option-button>
+                <ion-option-button class="button-positive" ng-click="mail()"> 
+                    <i class="icon ion-ios-email"></i>
+                </ion-option-button>
+            </ion-item>
         </ion-list>
     </ion-content>
 </ion-view>

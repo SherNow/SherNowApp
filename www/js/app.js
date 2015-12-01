@@ -36,7 +36,6 @@ angular.module('shernow', ['ionic', 'shernow.controllers', 'shernow.services'])
             })
             .state('tab.wifi', {
                 url: '/wifi/:wifiId',
-                cache : false,
                 views: {
                     'tab-wifi': {
                         templateUrl: 'templates/item.html',
