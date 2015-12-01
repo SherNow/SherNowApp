@@ -6,7 +6,7 @@ angular.module('shernow.services')
         
         var getAll = function () {
             return $http.get(baseApi + '/api/parking/').then(function(result) {
-                parkings = result.data;
+                parkings = _.map(result.data, function(parking){ return new Parking(parking); });
                 return parkings;
             });
         };

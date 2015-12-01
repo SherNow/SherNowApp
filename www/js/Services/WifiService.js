@@ -9,8 +9,8 @@ angular.module('shernow.services')
          * @returns {*} Promise that will be resolved to a array containing all wifis informations when the request
          * succeeds or fails.
          */
-        var getAll = function () {
-            return $http.get(baseApi + '/api/wifi/').then(function(result) {
+        var getAll = function (position) {
+            return $http.get(baseApi + '/api/wifi/' /* + '?lat=' + position.coords.latitude + '&lng=' +position.coords.longitude */).then(function(result) {
                 wifis = _.map(result.data, function (data) { return new Wifi(data); } );
                 return wifis;
             });

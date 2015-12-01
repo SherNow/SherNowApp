@@ -57,13 +57,8 @@ function Restaurant(data) {
     }
     
     this.getSafeSiteWeb = function(){
-        if(this.siteWeb){
-          if(this.siteWeb.substring(0,3) != "http"){
-            return "http://" + this.siteWeb;
-          }
-          else{
-            return this.siteWeb();
-          }
+        if (this.siteWeb){
+            return (this.siteWeb.substring(0, 4) != "http" ? "http://" : "") + this.siteWeb;
         }
         else{
           return "";

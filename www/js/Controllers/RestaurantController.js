@@ -3,6 +3,7 @@
 angular.module('shernow.controllers')
 .controller('RestaurantController', function($scope, $stateParams, Restaurants) {
     $scope.href = "#/tab/restaurant/";
+    $scope.listtitle = "Restaurants similaires";
     $scope.listicon = "ion-android-restaurant";
         
     $scope.elem = Restaurants.get($stateParams.restaurantId);
