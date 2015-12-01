@@ -12,7 +12,7 @@
                 <i class="icon ion-android-restaurant"></i>
                 <h2>{{elem.getMain()}}</h2>
                 <p>{{elem.getSub()}}</p>
-                <p>{{elem.getEchelle()}}</p>
+                <table><tr><td ng-repeat="i in elem.getEchelle() track by $index"><i style="float: left" class="icon-left ion-social-usd"></i></td></tr></table>  
                 <i class="icon ion-chevron-right icon-accessory"></i>
                 <ion-option-button class="button-balanced" ng-click="call()"> 
                     <i class="icon ion-ios-telephone"></i>
