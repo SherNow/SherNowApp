@@ -26,13 +26,13 @@ angular.module('shernow.services')
          * @returns {*}
          */
         var get = function (id) {
-            return _.find(restaurants, function(restaurant) { return restaurant._id == id; });
+            return _.find(restaurants, function(restaurant) { return restaurant.getId() == id; });
         };
         
         var setRelated = function(model){
             _.each(restaurants, function(restaurant){
-                _.each(model.categories, function(category){
-                    if (_.contains(restaurant.categories, category)){
+                _.each(model.getCategories(), function(category){
+                    if (_.contains(restaurant.getCategories(), category)){
                         model.addRelatedRestaurant(restaurant);
                     }
                 });

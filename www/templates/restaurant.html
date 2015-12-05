@@ -2,14 +2,14 @@
     <ion-content>
         <ion-list type="card">
             <ion-item class="item item item-thumbnail-left item-icon-right">
-                <img ng-if="elem.getImage()" src={{elem.getImage()}}>
+                <img ng-if="elem.getImage()" ng-src={{elem.getImage()}}>
                 <img ng-if="!elem.getImage()" src= "img/ionicons/ion-android-restaurant.png">
                 <h2>{{elem.getMain()}}</h2>
                 <p>{{elem.getDetail()}}</p>
                 <a target="_BLANK" ng-if= "elem.getSafeSiteWeb()" href={{elem.getSafeSiteWeb()}}>Visitez le site de ce restaurant</a>
                 <p ng-show="elem.getMoreDetail()">{{elem.getMoreDetail()}}</p>
                 <i class="icon ion-ios-telephone-outline">
-                  <a ng-show="elem.phone" class="item-icon-right" ng-href="tel:+{{elem.phone}}"></a></i> 
+                  <a ng-show="elem.getPhone()" class="item-icon-right" ng-href="tel:+{{elem.getPhone()}}"></a></i> 
             </ion-item>  
             <ion-item class="item item-text-wrap">
                                 {{elem.getDescription()}}
@@ -33,7 +33,7 @@
             <ion-item class="item item-divider">
             {{listtitle}}
             </ion-item>
-            <ion-item class="item item-icon-left item-icon-right" ng-repeat="subelem in elem.getRelatedRestaurants() | limitTo:5" ng-href="{{href}}{{subelem._id}}">
+            <ion-item class="item item-icon-left item-icon-right" ng-repeat="subelem in elem.getRelatedRestaurants() | limitTo:5" ng-href="{{href}}{{subelem.getId()}}">
                 <i class="icon ion-android-restaurant"></i>
                 <h2>{{subelem.getMain()}}</h2>
                 <i class="icon ion-chevron-right icon-accessory"></i>

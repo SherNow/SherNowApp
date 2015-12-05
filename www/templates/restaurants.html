@@ -8,7 +8,7 @@
             <ion-item class="item item-divider">
             {{listtitle}}
             </ion-item>
-            <ion-item class="item item-icon-left item-icon-right" collection-repeat="elem in data" ng-href="{{href}}{{elem._id}}">
+            <ion-item class="item item-icon-left item-icon-right" collection-repeat="elem in data" ng-href="{{href}}{{elem.getId()}}">
                 <i class="icon ion-android-restaurant"></i>
                 <h2>{{elem.getMain()}}</h2>
                 <p>{{elem.getSub()}}</p>

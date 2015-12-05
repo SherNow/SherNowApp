@@ -1,33 +1,46 @@
 function Restaurant(data) {
-    this.postalCode = data.CodePostal;
-    this._id = data._id;
-    this.address = data.NumeroCivique + " " + data.Rue + ", " + data.Ville;
-    this.fullAddress = this.address + ", " + this.postalCode;
-    this.description = data.DescriptionCourte;
-    this.name = data.Nom;
-    this.distance = "100m";
-    this.phone = data.NumeroTelephone;
-    this.prix = data.EchellePrix;
-    this.image = data.FichierImage;
-    this.siteWeb = data.SiteWeb;
-    this.categories = data.Categories.split(',');
-    
+    var address = data.NumeroCivique + " " + data.Rue + ", " + data.Ville;
+    var fullAddress = address + ", " + data.CodePostal;
+    var distance = "100m";
+    var categories = data.Categories.split(',');
     var related = [];
     
     this.getMain = function(){
-        return this.name;
+      return data.Nom;
+    }
+    
+    this.getRelatedRestaurants = function(){
+      return related;
+    }
+    
+    this.addRelatedRestaurant = function(restaurant){
+      if (!_.contains(related, restaurant) && this != restaurant){
+        related.push(restaurant);
+      }
+    }
+    
+    this.getCategories = function(){
+        return categories;
     };
-
+    
+    this.getId = function(){
+        return data._id;
+    }
+    
+    this.getPhone = function(){
+        return data.NumeroTelephone;
+    }
+    
     this.getSub = function(){
-        return this.address;
+        return address;
     };
 
     this.getDetail = function(){
-        return this.fullAddress;
+        return fullAddress;
     };
 
     this.getMoreDetail = function(){
-        return this.distance;
+        return distance;
     };
 
     this.getIcon = function(){
@@ -35,26 +48,23 @@ function Restaurant(data) {
     };
 
     this.getImage = function(){
-        return this.image;
+        return data.FichierImage;
     };
 
     this.getDescription = function(){
-        return this.description;
+        return data.DescriptionCourte;
     };
 
     this.getEchelle = function(){
-        return new Array(parseInt(this.prix));
+        return new Array(parseInt(data.EchellePrix));
     };
 
     this.getSafeSiteWeb = function(){
-        if(this.siteWeb){
-            if(this.siteWeb.substring(0,4) !== "http"){
-                return "http://" + this.siteWeb;
-            } else{
-                return this.siteWeb;
-            }
-        } else{
-            return "";
+        if (data.SiteWeb){
+            return (data.SiteWeb.substring(0, 4) != "http" ? "http://" : "") + data.SiteWeb;
         }
-    };
+        else{
+          return "";
+        }
+    }
 }

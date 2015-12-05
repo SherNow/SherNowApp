@@ -1,4 +1,5 @@
 function Wifi(data) {
+  
   this.postalCode = data.postal_code;
   this.address = data.civic_number + " " + data.street_name + ", " + data.city;
   this.fullAddress = this.address + ", " + this.postalCode;
