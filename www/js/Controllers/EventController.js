@@ -1,6 +1,6 @@
 'use strict';
 
 angular.module('shernow.controllers')
-.controller('EventController', function($scope, $stateParams, Events) {
-    $scope.elem = Events.get($stateParams.eventId);
+.controller('EventController', function($scope, $stateParams, ModelFactory) {
+    $scope.elem = ModelFactory.get("event", $stateParams.eventId);
 });

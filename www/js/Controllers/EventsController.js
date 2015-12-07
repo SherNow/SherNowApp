@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('shernow.controllers')
-    .controller('EventsController', function($scope, $stateParams, Events) {
+    .controller('EventsController', function($scope, $stateParams, ModelFactory) {
 
         $scope.href = "#/tab/event/";
         $scope.listicon = "ion-android-calendar";
@@ -9,7 +9,7 @@ angular.module('shernow.controllers')
 
         $scope.refresh = function(){
 
-            Events.getAll().then(function(data) {
+            ModelFactory.getAll("event").then(function(data) {
                 $scope.data = data;
                 $scope.$broadcast('scroll.refreshComplete');
             });

@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('shernow.controllers')
-    .controller('GarbageController', function($scope, $stateParams, $ionicModal, Garbage) {
+    .controller('GarbageController', function($scope, $stateParams, $ionicModal, ModelFactory) {
         $scope.garbage = '';
         var regex = new RegExp(/^[ABCEGHJKLMNPRSTVXY]\d[ABCEGHJKLMNPRSTVWXYZ]( )?\d[ABCEGHJKLMNPRSTVWXYZ]\d$/i);
     
         $scope.refresh = function(){
-             Garbage.get().then(function(garbage) {
+             ModelFactory.getAll("garbage").then(function(garbage) {
                 $scope.garbage = garbage;
              });
         };
